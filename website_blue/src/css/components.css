@@ -449,15 +449,15 @@
 		left: 50%;
 		transform: translate(-50%,0);
 		height: 2px;
-		width: 40px;
+		width: 26px;
 		background-color: #16598c;
 		transition: all .2s;
 	}
 	.navbar__toggle span:nth-child(1){
-		top: 10px;
+		top: 14px;
 	}
 	.navbar__toggle span:nth-child(2){
-		top: 22px;
+		top: 24px;
 	}
 	.navbar__toggle span:nth-child(3){
 		top: 34px;
@@ -715,7 +715,6 @@
 	/*font-weight: 600;*/
 	letter-spacing: 1px;
 	line-height: 28px;
-	text-align: justify;
 	margin-bottom: 32px;
 }
 .page-card img{
