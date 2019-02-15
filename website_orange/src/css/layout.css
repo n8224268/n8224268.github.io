@@ -1,0 +1,17 @@
+.wrapper{
+	overflow: hidden;
+	background-color: #ededed;
+	min-height: 100vh;
+}
+.main{
+	padding-top: 40px;
+	padding-bottom: 80px;
+}
+@media (max-width: 767px){
+	.main{
+		padding-top: 88px;
+	}
+	.main > .container{
+		padding: 0;
+	}
+}

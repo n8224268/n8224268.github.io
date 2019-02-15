@@ -115,10 +115,10 @@ p,.para{
 
 /* background-color */
 .bgc--default{background-color: #FFFFFF;}
-.bgc--primary{background-color: #16598c;}
+.bgc--primary{background-color: #55b9e2;}
 .bgc--secondary{background-color: ;}
 .bgc--gradient{background: linear-gradient(90deg,#fab367,#ff6d6d);}
-/*.bgc--gradient{background: linear-gradient(90deg,#39addb,#16598c);}*/
+/*.bgc--gradient{background: linear-gradient(90deg,#68e9d2,#55b9e2);}*/
 
 .bgc--positive{background-color: ;}
 .bgc--negative{background-color: ;}
@@ -133,7 +133,7 @@ p,.para{
 
 /* text color */
 .color--default{color: #FFFFFF;}
-.color--primary{color: #16598c;}
+.color--primary{color: #55b9e2;}
 .color--secondary{color: ;}
 
 .color--positive{color: ;}

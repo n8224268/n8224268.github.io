@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+	<meta charset="UTF-8">
+	<title>虎尾科技大學-電機工程系-類比積體電路實驗室 (Analog IC Design Lab)</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/common/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/common/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/images/common/favicon/favicon-16x16.png">
+	<link rel="manifest" href="assets/images/common/favicon/site.webmanifest">
+	<link rel="mask-icon" href="assets/images/common/favicon/safari-pinned-tab.svg" color="#ee7b47">
+	<meta name="theme-color" content="#ee7b47">
+	<!-- CSS reset -->
+	<link rel="stylesheet" href="src/vendor/normalize/normalize.css">
+	<!-- CSS vender -->
+	<link rel="stylesheet" href="src/vendor/bootstrap/bootstrap-grid.css">
+	<link rel="stylesheet" href="src/vendor/fontawesome-free-5.7.1-web/css/all.min.css">
+	<!-- CSS globel and components -->
+	<link rel="stylesheet" href="src/css/base.css">
+	<link rel="stylesheet" href="src/css/layout.css">
+	<link rel="stylesheet" href="src/css/components.css">
+	
+</head>
+<body>
+<div class="wrapper bgc--light-grey-2">
+
+	<!-- Start header -->
+	<header class="header">
+		<div class="navbar">
+			<div class="navbar__panel">
+				<div class="navbar__upper">
+					<a href="http://etccollege.nfu.edu.tw/index.php/zh/" class="navbar__school-logo" style="background-image: url('assets/images/common/brand.gif');"></a>
+					<ul class="lab-info navbar__lab-info">
+						<li class="lab-info__item">
+							<i class="fas fa-phone"></i>
+							<a href="tel:05-6315615">05-6315615</a>
+						</li>
+						<span class="lab-info__divider">|</span>
+						<li class="lab-info__item">
+							<i class="fas fa-envelope"></i>
+							<a href="mailto:jchen99@nfu.edu.tw">jchen99@nfu.edu.tw</a>
+						</li>
+						<span class="lab-info__divider">|</span>
+						<li class="lab-info__item">
+							<i class="fas fa-map-marker-alt"></i><a href="https://goo.gl/maps/fLQNr5NMp4t" target="_blank">電機館 311 室</a>
+						</li>
+					</ul>
+				</div>
+				<div class="navbar__middle">
+					<img class="navbar__lab-logo" src="assets/images/common/lab_logo.png" alt="">
+					<h1 class="navbar__lab-name">類比積體電路實驗室 (Analog IC Design Lab)</h1>
+				</div>
+				<div class="navbar__lower">
+					<ul class="navbar__nav">
+						<li class="nav__item">
+							<a href="index.html">News</a>
+						</li>
+						<li class="nav__item active">
+							<a href="laboratory.html">Laboratory</a>
+						</li>
+						<li class="nav__item">
+							<a href="advisor.html">Advisor</a>
+						</li>
+						<li class="nav__item">
+							<a href="member.html">Member</a>
+						</li>
+						<li class="nav__item">
+							<a href="publication.html">Publication</a>
+						</li>
+						<li class="nav__item">
+							<a href="award.html">Award</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<a class="navbar__lab-title-group" href="index.html" style="display: none;">
+				<img class="navbar__lab-logo--mobile" src="assets/images/common/lab_logo.png" alt="">
+				<p class="navbar__lab-name--mobile">類比積體電路實驗室</p>
+			</a>
+			<div class="navbar__toggle">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</header>
+	<!-- End header -->
+
+	<!-- Start main -->
+	<section class="main laboratory-page">
+		<div class="container">
+			<div class="page-big-word">LABORATORY</div>
+			<h2 class="page-title">LABORATORY</h2>
+			<div class="page-card">
+				<div class="laboratory-page__main">
+					<h4 class="page-card__title"><i class="fas fa-flask"></i><span>Lab introduction</span></h4>
+					<p class="page-card__para">本實驗室成立旨在培育類比積體電路設計和電源管理晶片設計的人才，目前研究方向著重於低功率積體電路設計、類比積體電路設計和電源管理控制晶片設計。藉由創新電路的研發過程，來養成學生獨立思考和解決問題之能力，並以完整的實體電路設計訓練，來培育具電路分析、電路模擬、電路設計、電路佈局和實作量測等技能的專業人才。</p>
+					
+					<h4 class="page-card__title"><i class="fas fa-microchip"></i><span>Chip introduction</span></h4>
+
+					<!-- Start 第一篇 -->
+					<h5 class="chip-intro__title">High-Efficiency PFM Boost Converter with An Accurate Zero Current Detector</h5>
+					<h6 class="chip-intro__subtitle">IEEE Transactions on Circuits and Systems II: Express Brief</h6>
+					<p class="page-card__para">An integrated pulse-frequency modulation boost converter with an accurate zero current detector (ZCD) is presented. The proposed ZCD is used to improve the power efficiency of the boost converter and comprises two hysteresis comparators, the transistors MZ1–MZ3, and a set–reset latch to eliminate the reverse current of the high-side switch in the energy release period. This ZCD can also avoid early or delayed detection and ensure stable operation in the discontinuous conduction mode. Furthermore, a new comparator incorporating an appropriate logic gate is developed to eliminate a constant current during the energy storage period. The proposed boost converter was designed and fabricated using the standard TSMC 0.18-μm 1P6M CMOS technology with a chip area of 0.43 mm2. The experimental results revealed that the maximum power efficiency of 88.39% is achieved at a load current of 50 mA, and the light-load efficiency is enhanced by the proposed ZCD. Furthermore, power efficiency of the boost converter with the proposed ZCD is 28.29% higher than that of the existing ZCD design at a load current of 1 mA.</p>
+					<img src="assets/images/laboratory/image001.png" alt="">
+					<img src="assets/images/laboratory/image002.jpg" alt="">
+					<img src="assets/images/laboratory/image003.jpg" alt="">
+					<!-- End 第一篇 -->
+
+					<!-- Start 第二篇 -->
+					<h5 class="chip-intro__title">A Sub-1ppm/°C Precision Bandgap Reference with Adjusted-Temperature-Curvature Compensation</h5>
+					<h6 class="chip-intro__subtitle">IEEE Transactions on Circuits and Systems I:Regular Papers</h6>
+					<p class="page-card__para">This paper presents a precision bandgap reference with an innovative adjusted-temperature-curvature compensation circuit that obtains a good temperature coefficient (TC) over a wide temperature range. The proposed compensation circuit for enhancing the voltage accuracy of the bandgap reference combines an addition circuit, subtraction circuit, and current mirror to achieve an adjusted piecewise-linear temperature current over an entire temperature range. The proposed bandgap reference was designed and fabricated using a standard TSMC 0.18 μm 1P6M CMOS technology. Measurements on 8 samples indicated that the proposed bandgap reference achieved a TC that varies from 1.67 to 10.55 ppm/°C from –40 °C to 140 °C with a supply voltage of 1.8 V. The measured 547 mV reference voltage achieved a precision line regulation that is less than 0.08 %/V for supply voltages between 1.3 and 1.8 V. The proposed circuit dissipated 28μA with a supply voltage of 1.8 V, and active area of 0.0094 mm2. The circuit was designed to operate on a low supply voltage down to 1.3 V.</p>
+					<img src="assets/images/laboratory/image004.png" alt="">
+					<img src="assets/images/laboratory/image005.jpg" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="page-bg-logo"></div>
+	</section>
+	<!-- End main -->
+
+	<!-- Start footer -->
+	<footer class="footer">
+		<div class="footer__main">
+			<div class="container">
+				<div class="footer__logos">
+					<a class="logos__item" href="index.html">
+						<img class="footer__lab-logo" src="assets/images/common/lab_logo.png" alt="">
+					</a>
+					<a href="http://etccollege.nfu.edu.tw/index.php/zh/" class="logos__item">
+						<img class="footer__school-logo" src="assets/images/common/brand.gif" alt="">
+					</a>
+				</div>
+				<ul class="lab-info footer__lab-info">
+					<li class="lab-info__item">
+						<i class="fas fa-phone"></i>
+						<a href="tel:05-6315615">05-6315615</a>
+					</li>
+					<span class="lab-info__divider">|</span>
+					<li class="lab-info__item">
+						<i class="fas fa-envelope"></i>
+						<a href="mailto:jchen99@nfu.edu.tw">jchen99@nfu.edu.tw</a>
+					</li>
+					<span class="lab-info__divider">|</span>
+					<li class="lab-info__item">
+						<i class="fas fa-map-marker-alt"></i><a href="https://goo.gl/maps/fLQNr5NMp4t" target="_blank">電機館 311 室</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="copyright">
+			<p class="copyright__text">Copyright © 2019 Joey. All rights reserved</p>			
+		</div>
+	</footer>
+	<!-- End footer -->
+</div>
+</body>
+	<script src="src/vendor/jquery/jquery-3.3.1.min.js"></script>
+	<script>
+	// navbar stick
+	$(window).scroll(function() {
+		var screenheight = $(this).height();
+		var scrolledpx = $(this).scrollTop();
+		if (scrolledpx >= 126){
+		    $('.navbar').addClass('active');
+		}else{
+		    $('.navbar').removeClass('active');
+		}
+	})
+
+	// toggle
+	$('.navbar__toggle').on('click',function(){
+		$(this).toggleClass('toggled');
+		$('.navbar__panel').toggleClass('toggled');
+	})
+
+	</script>
+</html>
