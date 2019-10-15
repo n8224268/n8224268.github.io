@@ -6,11 +6,6 @@
 	position: relative;
 }
 body {
-	background: url(../images/classy_fabric.png);
-	background: linear-gradient(0deg,rgb(70, 48, 58),rgb(27, 27, 66));
-	/*background: linear-gradient(45deg,#ee4540,#c72c41,#801336,#510a32,#2d142c);*/
-	/*background-position: center;
-	background-size: cover;*/
 	color: white;
 	font-size: 12px;
 	font-weight: 300;
@@ -19,6 +14,30 @@ body {
 	overflow: hidden;
 	border: 1px solid #fff;
 	height: 100vh;
+
+	/* backgound color animation */
+	/*background: url(../images/classy_fabric.png);*/
+	/*background: linear-gradient(0deg,rgb(70, 48, 58),rgb(27, 27, 66));*/
+	background: linear-gradient(214deg, #46303a, #1b1b42, #b70000);
+	background-size: 600% 600%;
+	-webkit-animation: AnimationName 3s ease infinite;
+	-moz-animation: AnimationName 3s ease infinite;
+	animation: AnimationName 3s ease infinite;
+}
+@-webkit-keyframes AnimationName {
+    0%{background-position:15% 0%}
+    50%{background-position:86% 100%}
+    100%{background-position:15% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:15% 0%}
+    50%{background-position:86% 100%}
+    100%{background-position:15% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:15% 0%}
+    50%{background-position:86% 100%}
+    100%{background-position:15% 0%}
 }
 /* List style */
 ul{
@@ -358,20 +377,20 @@ ul{
 
 /* section 2 why measurement */
 .section-2 .intro-card{
-	top: 40%;
+	top: 45%;
 	left: 0;
 }
 
 /* section 3 why measurement */
 .section-3 .intro-card{
-	top: 60%;
+	top: 55%;
 	left: 20%;
 }
 
 /* section 4 why measurement */
 .section-4 .intro-card{
-	top: 20%;
-	left: 10%;
+	top: 18%;
+	left: 13%;
 }
 
 /* section 5 how to get information */
