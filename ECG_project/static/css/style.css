@@ -234,7 +234,6 @@ ul{
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
-	border: 1px solid green;
 	width: 130%;
 	height: 140%;
 }
@@ -253,9 +252,15 @@ ul{
 .intro-card_bg .bottom{
 	width: 80%;
 	height: 80%;
-	background-color: #fff;
 	opacity: 0.2;
 	transform: translate(-50%,-50%) translateZ(-100px);
+	background: repeating-linear-gradient(
+		-45deg,
+		transparent,
+		transparent 5px,
+		#ccc 2px,
+		#ccc 7px
+	)
 }
 .intro-card_bg .frame{
 	border: 1px solid #ed4159;
@@ -272,10 +277,38 @@ ul{
 	transform: translate(0,-50%) translateZ(50px);
 }
 .intro-card_bg .corner{
-	border: 1px solid #fff;
 	width: 101%;
 	height: 101%;
 	transform: translate(-50%,-50%) translateZ(100px);
+}
+.intro-card_bg .corner span{
+	position: absolute;
+	width: 24px;
+	height: 24px;
+}
+.intro-card_bg .corner span:nth-child(1){
+	top: 0;
+	left: 0;
+	border-top: 2px solid rgba(255,255,255,0.7);
+	border-left: 2px solid rgba(255,255,255,0.7);
+}
+.intro-card_bg .corner span:nth-child(2){
+	top: 0;
+	right: 0;	
+	border-top: 2px solid rgba(255,255,255,0.7);
+	border-right: 2px solid rgba(255,255,255,0.7);
+}
+.intro-card_bg .corner span:nth-child(3){
+	bottom: 0;
+	right: 0;	
+	border-bottom: 2px solid rgba(255,255,255,0.7);
+	border-right: 2px solid rgba(255,255,255,0.7);
+}
+.intro-card_bg .corner span:nth-child(4){
+	bottom: 0;
+	left: 0;	
+	border-bottom: 2px solid rgba(255,255,255,0.7);
+	border-left: 2px solid rgba(255,255,255,0.7);
 }
 .intro-card_main{
 	padding: 22px 30px;
@@ -298,13 +331,13 @@ ul{
     font-stretch: normal;
     line-height: 1.5;
     letter-spacing: normal;
-    color: hsla(0,0%,100%,.7);
+    color: rgba(255,255,255,0.7);
 }
 
 
 
 /*------------------------------------*\
-    Sections layouts
+    Section details
 \*------------------------------------*/
 
 /* Common */
