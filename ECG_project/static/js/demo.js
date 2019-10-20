@@ -8,6 +8,12 @@ function init() {
             name: "section-1",
             callback: function() {
                 navStyle("section-1");
+                if ($(".heart_core").hasClass("hide")) {
+                    $(".heart_core").removeClass("hide");
+                }
+                if ($(".heart_core_small").hasClass("show")) {
+                    $(".heart_core_small").removeClass("show");
+                }
             }
         })
         .lineTo(0, 90, {
@@ -24,14 +30,14 @@ function init() {
                 }
             }
         })
-        .lineTo(0, 200, {
+        .lineTo(0, 220, {
             callback: function() {
                 if ($(".heart_core_small").hasClass("show")) {
                     $(".heart_core_small").removeClass("show");
                 }
             }
         })
-        .lineTo(0, 230, {
+        .lineTo(0, 250, {
             callback: function() {
                 if (!$(".heart_core_small").hasClass("show")) {
                     $(".heart_core_small").addClass("show");
@@ -113,8 +119,15 @@ function init() {
     $("nav").find("a").each(function() {
         var target = $(this).attr("href").replace("#", "");
         $(this).click(function(e) {
-            $("nav").find("a").removeClass("active")
-            $(this).addClass("active")
+            $("nav").find("a").removeClass("active");
+            $(this).addClass("active");
+            if (!$(".heart_core").hasClass("hide")) {
+                $(".heart_core").addClass("hide");
+            }
+            if (!$(".heart_core_small").hasClass("show")) {
+                $(".heart_core_small").addClass("show");
+            }
+
             e.preventDefault();
 
             // Include the jQuery easing plugin (http://gsgd.co.uk/sandbox/jquery/easing/)
@@ -135,7 +148,6 @@ function init() {
         // 	$(this).text("Show Path");
         // });
 }
-
 
 function highlight(element) {
     if (!element.hasClass("highlight")) {
