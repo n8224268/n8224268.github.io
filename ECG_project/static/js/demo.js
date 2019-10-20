@@ -5,40 +5,97 @@ function init() {
 
     $.fn.scrollPath("getPath")
         .moveTo(0, 0, {
-            name: "section-1"
+            name: "section-1",
+            callback: function() {
+                navStyle("section-1");
+            }
+        })
+        .lineTo(0, 90, {
+            callback: function() {
+                if ($(".heart_core").hasClass("hide")) {
+                    $(".heart_core").removeClass("hide");
+                }
+            }
+        })
+        .lineTo(0, 120, {
+            callback: function() {
+                if (!$(".heart_core").hasClass("hide")) {
+                    $(".heart_core").addClass("hide");
+                }
+            }
+        })
+        .lineTo(0, 200, {
+            callback: function() {
+                if ($(".heart_core_small").hasClass("show")) {
+                    $(".heart_core_small").removeClass("show");
+                }
+            }
+        })
+        .lineTo(0, 230, {
+            callback: function() {
+                if (!$(".heart_core_small").hasClass("show")) {
+                    $(".heart_core_small").addClass("show");
+                }
+            }
         })
         .lineTo(0, 540)
         .arc(810, 540, 810, Math.PI, Math.PI * 0.81, true, {
-            name: "section-2"
+            name: "section-2",
+            callback: function() {
+                navStyle("section-2");
+            }
         })
         .arc(810, 540, 810, Math.PI * 0.81, Math.PI / 1.6, true)
         .lineTo(800, 1400, {
-
-            name: "section-3"
+            name: "section-3",
+            callback: function() {
+                navStyle("section-3");
+            }
         })
         .arc(1240, -164, 1624, Math.PI / 1.7, Math.PI / 2.4, true)
         .lineTo(1950, 1320, {
-            name: "section-4"
+            name: "section-4",
+            callback: function() {
+                navStyle("section-4");
+            }
         })
         .lineTo(2120, 1260)
         .arc(2476, 1780, 600, Math.PI * 1.4, Math.PI * 1.75, false, {
-            name: "section-5"
+            name: "section-5",
+            callback: function() {
+                navStyle("section-5");
+            }
         })
         .arc(2476, 1780, 600, Math.PI * 1.75, Math.PI * 2.25, false, {
-            name: "section-6"
+            name: "section-6",
+            callback: function() {
+                navStyle("section-6");
+            }
         })
         .arc(1750, 1060, 1624, Math.PI * 2.25, Math.PI * 0.375, false, {
-            name: "section-7"
+            name: "section-7",
+            callback: function() {
+                navStyle("section-7");
+            }
         })
         .arc(1750, 1060, 1624, Math.PI * 0.375, Math.PI / 2, false)
         .arc(1750, 4310, 1624, Math.PI * 1.5, Math.PI * 1.333, true, {
-            name: "section-8"
+            name: "section-8",
+            callback: function() {
+                navStyle("section-8");
+            }
         })
         .arc(1750, 4310, 1624, Math.PI * 1.333, Math.PI * 1.1667, true, {
-            name: "section-9"
+            name: "section-9",
+            callback: function() {
+                navStyle("section-9");
+            }
         })
         .arc(1750, 4310, 1624, Math.PI * 1.1667, Math.PI, true, {
-            name: "section-10"
+            name: "section-10",
+            callback: function() {
+                navStyle("section-10");
+            }
         })
 
     // callback: function() {
@@ -87,6 +144,14 @@ function highlight(element) {
     }
 }
 
+function navStyle(name) {
+    $(".nav a").each(function() {
+        if ($(this).hasClass("active")) {
+            $(this).removeClass("active");
+        }
+    })
+    $('.nav a[href="#' + name + '"]').addClass("active")
+}
 
 // get wrapper changing
 // (function() {
