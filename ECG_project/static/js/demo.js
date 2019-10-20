@@ -113,6 +113,8 @@ function init() {
     $("nav").find("a").each(function() {
         var target = $(this).attr("href").replace("#", "");
         $(this).click(function(e) {
+            $("nav").find("a").removeClass("active")
+            $(this).addClass("active")
             e.preventDefault();
 
             // Include the jQuery easing plugin (http://gsgd.co.uk/sandbox/jquery/easing/)
