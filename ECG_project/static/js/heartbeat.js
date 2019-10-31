@@ -1,11 +1,9 @@
-// const socket = io();
-
 var limit = 200,
     duration = 5,
     now = new Date(Date.now() - duration)
 
-var width = 600,
-    height = 400
+var graphWidth = $('.graph').width(),
+    graphHeight = $('.graph').height()
 
 var groups = {
     current: {
@@ -24,11 +22,11 @@ var groups = {
 var x = d3.time.scale()
     .domain([now - (limit - 2), now - duration])
     // .domain([0,100])
-    .range([0, width])
+    .range([0, graphWidth])
 
 var y = d3.scale.linear()
     .domain([0, 100])
-    .range([height, 0])
+    .range([graphHeight, 0])
 
 var line = d3.svg.line()
     .interpolate('basis')
@@ -41,8 +39,8 @@ var line = d3.svg.line()
 
 var svg = d3.select('.graph').append('svg')
     .attr('class', 'chart')
-    .attr('width', width)
-    .attr('height', height)
+    .attr('width', graphWidth)
+    .attr('height', graphHeight)
 
 // var axis = svg.append('g')
 //     .attr('class', 'x axis')
@@ -71,6 +69,7 @@ var minYTemp = 0;
 var maxYTemp = 0;
 
 function tick() {
+
     now = new Date()
 
     // Add new values

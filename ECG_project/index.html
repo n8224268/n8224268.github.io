@@ -7,6 +7,8 @@
 	<!-- CSS -->
 	<link rel="stylesheet" href="static/css/normalize.css"/>
 	<link rel="stylesheet" type="text/css" href="static/css/scrollpath.css" />
+	<link rel="stylesheet" href="static/css/jquery.fancybox.css">
+	<link rel="stylesheet" href="static/css/bootstrap-grid.css">
 	<link rel="stylesheet" type="text/css" href="static/css/style.css" />
 	<link rel="stylesheet" href="static/css/heartbeat.css">
 
@@ -43,6 +45,7 @@
 			<li><a href="#section-8">Preprocess</a></li>
 			<li><a href="#section-9">ResNet</a></li>
 			<li><a href="#section-10">Accuracy</a></li>
+			<li><a href="#section-11">Interaction</a></li>
 		</ul>
 	</nav>
 	<!-- End navigation -->
@@ -82,16 +85,18 @@
 		<!-- Start  -->
 		<div class="section section-2">
 			<div class="intro-card js-tilt">
-				<div class="intro-card_bg">
-					<div class="bottom"></div>
-					<div class="frame"></div>
-					<div class="icon"></div>
-					<div class="corner"><span></span><span></span><span></span><span></span></div>
-				</div>
-				<div class="intro-card_main">
-					<h3 class="title">量測心跳的重要性</h3>
-					<p class="para">Mercury Development is proud to announce a new training program: React development!</p>
-				</div>
+				<a data-fancybox data-type="iframe" data-src="IframePage/Page_01_Measurement.html" href="javascript:;">
+					<div class="intro-card_bg">
+						<div class="bottom"></div>
+						<div class="frame"></div>
+						<div class="icon"></div>
+						<div class="corner"><span></span><span></span><span></span><span></span></div>
+					</div>
+					<div class="intro-card_main">
+						<h3 class="title">量測心跳的重要性</h3>
+						<p class="para">Mercury Development is proud to announce a new training program: React development!</p>
+					</div>
+				</a>
 			</div>
 		</div>
 		<!-- End -->
@@ -214,7 +219,39 @@
 					<p class="para">Mercury Development is proud to announce a new training program: React development!</p>
 				</div>
 			</div>
-    		<div class="graph"></div>
+			<a class="btn js-gotoInteraction" href="#section-11">即時互動體驗</a>
+		</div>
+
+		<div class="section section-11">
+			<div class="container--center">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-6">
+							<h2 class="title">即時互動體驗</h2>
+							<ol class="para">
+								<li>請將手指插入感應器，並放鬆身心，畫面上將出現你的心跳波型及當前心律。</li>
+								<li>使用「心律波型錄製」按鈕，將錄製 9 秒的心跳長度，右方將出現心跳時頻圖。</li>
+							</ol>
+							<div class="heartbeat-bpm">
+								<span class="value">80</span>
+								<span class="unit">bpm</span>
+							</div>
+							<a href="" class="btn js-heartbeatRecord">心律波形錄製</a>
+						</div>
+						<div class="col-md-6">
+							<div class="graph-outter">
+								<div class="graph-frame">
+									<div class="graph"></div>
+								</div>
+							</div>
+							<div class="spectrogram">
+								<div class="spectrogram__inner"></div>
+								<div class="loading">錄製中...</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<!-- End main -->
@@ -272,5 +309,15 @@ $(document).ready(function() {
 <script src="/socket.io/socket.io.js"></script>
 <script src="/main.js"></script>
 <script src="static/js/heartbeat.js"></script>
+<script src="static/js/jquery.fancybox.min.js"></script>
+<script>
+	$('[data-fancybox]').fancybox({
+		// Options will go here
+		idleTime: false,
+		iframe : {
+			preload : false
+		}
+	});
+</script>
 
 </html>

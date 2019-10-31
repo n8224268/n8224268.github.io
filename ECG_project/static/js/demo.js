@@ -1,8 +1,8 @@
 $(document).ready(init);
 
 function init() {
-    /* ========== DRAWING THE PATH AND INITIATING THE PLUGIN ============= */
 
+    /* ========== DRAWING THE PATH AND INITIATING THE PLUGIN ============= */
     $.fn.scrollPath("getPath")
         .moveTo(0, 0, {
             name: "section-1",
@@ -103,6 +103,29 @@ function init() {
                 navStyle("section-10");
             }
         })
+        .lineTo(126, 4360, {
+            callback: function() {
+                if (!$(".heart_core_small").hasClass("show")) {
+                    $(".heart_core_small").addClass("show");
+                }
+            }
+        })
+        .lineTo(126, 4560, {
+            callback: function() {
+                if ($(".heart_core_small").hasClass("show")) {
+                    $(".heart_core_small").removeClass("show");
+                }
+            }
+        })
+        .lineTo(126, 5600, {
+            name: "section-11",
+            callback: function() {
+                navStyle("section-11");
+                if ($(".heart_core_small").hasClass("show")) {
+                    $(".heart_core_small").removeClass("show");
+                }
+            }
+        })
 
     // callback: function() {
     //     highlight($(".sp-scroll-handle"));
@@ -135,9 +158,30 @@ function init() {
             $.fn.scrollPath("scrollTo", target, 800, "easeInOutSine");
         });
     });
+    $("nav li:last-child a").click(function(e) {
+        if ($(".heart_core_small").hasClass("show")) {
+            $(".heart_core_small").removeClass("show");
+        }
+    })
+    $(".js-gotoInteraction").each(function() {
+        var target = $(this).attr("href").replace("#", "");
+        $(this).click(function(e) {
+            $("nav").find("a").removeClass("active");
+            $(this).addClass("active");
+            if ($(".heart_core_small").hasClass("show")) {
+                $(".heart_core_small").removeClass("show");
+            }
 
-    /* ===================================================================== */
+            e.preventDefault();
 
+            // Include the jQuery easing plugin (http://gsgd.co.uk/sandbox/jquery/easing/)
+            // for extra easing functions like the one below
+            $.fn.scrollPath("scrollTo", target, 400, "easeInOutSine");
+        });
+    });
+
+
+    /* Show path ===================================================================== */
     $(".settings .show-path").click(function(e) {
             e.preventDefault();
             $(".sp-canvas").toggle();
@@ -147,7 +191,160 @@ function init() {
         // }, function() {
         // 	$(this).text("Show Path");
         // });
+
+
+    /* Heartbeat Interaction =============================================================================== */
+    var M_Status = 'ready' // ready, recording, finished
+    var counter = -1;
+    var SpecPrepared = false;
+    $heartbeatRecordBtn = $('.js-heartbeatRecord');
+    $spectrogramLoading = $('.section-11 .spectrogram .loading');
+    $graphOutter = $('.section-11 .graph-outter');
+    $spectrogram = $('.section-11 .spectrogram');
+    setInterval(function() {
+        if (M_Status == 'ready') {
+            counter = -1;
+            $heartbeatRecordBtn.text('心律波形錄製');
+            $spectrogramLoading.text('準備錄製');
+            $('.spectrogram__inner').css("background-image", "url()");
+            if ($('.spectrogram__inner').hasClass('active')) {
+                $('.spectrogram__inner').removeClass('active');
+            }
+        } else if (M_Status == 'recording') {
+            $heartbeatRecordBtn.text('停止');
+            $spectrogramLoading.text('錄製中...' + counter)
+            if (counter == 10) {
+                M_Status = 'finished';
+                $spectrogramLoading.text('錄製完畢');
+                $heartbeatRecordBtn.text('重設');
+                setTimeout(function() {
+                    $spectrogramLoading.text('');
+                }, 400);
+
+                // post request for save data as json file
+                $.post('http://localhost:3000/posts/?getSpec=true');
+
+                // Print out spectrogram
+                setTimeout(function() {
+                    $('.spectrogram__inner').css("background-image", "url(static/images/heart_data.png)").addClass('active');
+                }, 100);
+            }
+        } else if (M_Status == 'finished') {
+            counter = -2;
+        }
+        console.log(M_Status, counter)
+        counter++;
+    }, 1000)
+
+    $heartbeatRecordBtn.click(function(e) {
+        $(this).addClass('is-onclick');
+        if (M_Status == 'ready') {
+            M_Status = 'recording';
+            if (!$graphOutter.hasClass('is-squeeze')) {
+                $graphOutter.addClass('is-squeeze');
+            }
+            if (!$spectrogram.hasClass('is-loading')) {
+                $spectrogram.addClass('is-loading');
+            }
+        } else if (M_Status == 'recording' && counter < 10) {
+            M_Status = 'ready';
+            if ($graphOutter.hasClass('is-squeeze')) {
+                $graphOutter.removeClass('is-squeeze');
+            }
+            if ($spectrogram.hasClass('is-loading')) {
+                $spectrogram.removeClass('is-loading');
+            }
+        } else if (M_Status == 'finished') {
+            M_Status = 'ready';
+            if ($graphOutter.hasClass('is-squeeze')) {
+                $graphOutter.removeClass('is-squeeze');
+            }
+            if ($spectrogram.hasClass('is-loading')) {
+                $spectrogram.removeClass('is-loading');
+            }
+        }
+        e.preventDefault();
+    });
+
+    // Antibouncer for btn
+    setInterval(function() {
+        if ($heartbeatRecordBtn.hasClass('is-onclick')) {
+            $heartbeatRecordBtn.removeClass('is-onclick');
+        };
+    }, 1000)
+
+
+    /* Heartbeat rate calculation =============================================================================== */
+    var heartbeatArr = [];
+    var heartbeatArrAvg = 0;
+    var heartbeatArrSum = 0;
+    var threshold = 2.5;
+    var pastTime = new Date().getTime();
+    var outputHeartrate = 0;
+    socket.on('heartbeat', function(realbeat) {
+        if (heartbeatArr.length < 500) {
+            heartbeatArr.push(realbeat);
+        }
+        if (heartbeatArr.length == 500) {
+            heartbeatArr.shift();
+            heartbeatArr.push(realbeat);
+
+            for (var i = 0; i <= 499; i++) {
+                heartbeatArrSum = heartbeatArrSum + parseInt(heartbeatArr[i]);
+            }
+            heartbeatArrAvg = heartbeatArrSum / 500;
+
+            // over threshold then time it.
+            if (heartbeatArr[0] >= heartbeatArrAvg + threshold) {
+                var timeChangeArr = [];
+                var currentTime = new Date().getTime();
+                var timeChange = currentTime - pastTime;
+                if (timeChange > 550 && timeChange < 1200) {
+                    // Output heartrate
+                    outputHeartrate = parseInt(60 / (timeChange / 1000));
+                    // console.log(outputHeartrate)
+                    $('.heartbeat-bpm .value').text(outputHeartrate);
+                }
+                pastTime = currentTime;
+            }
+            heartbeatArrSum = 0;
+        }
+    });
 }
+
+
+// function download(data, filename, type) {
+//     var file = new Blob([data], {
+//         type: type
+//     });
+//     if (window.navigator.msSaveOrOpenBlob) // IE10+
+//         window.navigator.msSaveOrOpenBlob(file, filename);
+//     else { // Others
+//         var a = document.createElement("a"),
+//             url = URL.createObjectURL(file);
+//         a.href = url;
+//         a.download = filename;
+//         document.body.appendChild(a);
+//         a.click();
+//         setTimeout(function() {
+//             document.body.removeChild(a);
+//             window.URL.revokeObjectURL(url);
+//         }, 0);
+//     }
+// }
+
+// function loadJsonData() {
+//     $.getJSON('../../../../data.json', gotData);
+//     console.log('got it');
+// }
+
+// function gotData(data) {
+//     console.log(data);
+// }
+// loadJsonData();
+
+
+
 
 function highlight(element) {
     if (!element.hasClass("highlight")) {
@@ -166,7 +363,6 @@ function navStyle(name) {
     })
     $('.nav a[href="#' + name + '"]').addClass("active")
 }
-
 // get wrapper changing
 // (function() {
 //     var ev = new $.Event('style'),
@@ -178,6 +374,8 @@ function navStyle(name) {
 // })();
 
 
+
+// rellax for this case (old) =====================================================
 // var wrapperTopPast = 0;
 // var wrapperLeftPast = 0;
 // var wrapperTopMove = 0;
