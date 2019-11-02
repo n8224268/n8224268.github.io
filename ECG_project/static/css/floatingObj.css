@@ -1,0 +1,102 @@
+/*------------------------------------*\
+	Float Obj
+\*------------------------------------*/
+.floating-obj{
+	position: absolute;
+	/*border: 1px solid #fff;*/
+}
+.obj_001{
+	bottom: 30%;
+	left: 45%;
+	transform: translate(-100%,100%) rotate(180deg);
+	animation: breathing 5s infinite;
+}
+.obj_001 img{
+	width: 750px;
+	display: block;
+	opacity: 0.3;
+}
+.obj_002{
+	top: 25%;
+	right: -12%;
+	animation: floating 15s ease-in-out infinite;
+}
+.obj_002 img{
+	width: 450px;
+	display: block;
+	opacity: 0.2;
+	animation: rotate 60s linear infinite;
+}
+.obj_003{
+	top: 70%;
+	right: -12%;
+	animation: floating 15s -5s ease-in-out infinite reverse;
+}
+.obj_003 img{
+	width: 800px;
+	display: block;
+	opacity: 0.2;
+	animation: rotate 60s linear infinite;
+}
+.obj_004{
+	top: -5%;
+	left: 55%;
+}
+.obj_004 .axis{
+	width: 720px;
+	display: block;
+	opacity: 0.5;
+}
+.obj_004 .pulse{
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	width: 80%;
+	height: 80%;
+	overflow: hidden;
+}
+.obj_004 .pulse img{
+	width: 100%;
+	opacity: 0.5;
+	position: absolute;
+	top: 0;
+}
+.obj_004 .pulse .pulse_1{
+	left: 0;
+	animation: pulseMove1 2s infinite linear,pulseFlush 2s -1s infinite;
+}
+.obj_004 .pulse .pulse_2{
+	left: 100%;
+	animation: pulseMove2 2s infinite linear,pulseFlush 2s -1s infinite;
+}
+
+/*------------------------------------*\
+	Animation
+\*------------------------------------*/
+@keyframes floating{
+	0%{transform: translate(0,0);}
+	50%{transform: translate(0,100px);}
+	100%{transform: translate(0,0);}
+}
+@keyframes rotate{
+	0%{transform: rotate(0);}
+	100%{transform: rotate(360deg);}
+}
+@keyframes breathing{
+	0%{opacity: 0.3;}
+	50%{opacity: 0.5;}
+	100%{opacity: 0.3;}
+}
+@keyframes pulseMove1{
+	0%{left: 0%;}
+	100%{left: -100%;}
+}
+@keyframes pulseMove2{
+	0%{left: 100%;}
+	100%{left: 0%;}
+}
+@keyframes pulseFlush{
+	0%{opacity: 0.4}
+	50%{opacity: 0.8}
+	100%{opacity: 0.4}
+}
