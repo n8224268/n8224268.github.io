@@ -126,6 +126,12 @@ function init() {
                 }
             }
         })
+        .lineTo(126, 6800, {
+            name: "section-12",
+            callback: function() {
+                navStyle("section-12");
+            }
+        })
 
     // callback: function() {
     //     highlight($(".sp-scroll-handle"));
@@ -155,10 +161,10 @@ function init() {
 
             // Include the jQuery easing plugin (http://gsgd.co.uk/sandbox/jquery/easing/)
             // for extra easing functions like the one below
-            $.fn.scrollPath("scrollTo", target, 800, "easeInOutSine");
+            $.fn.scrollPath("scrollTo", target, 200, "easeInOutSine");
         });
     });
-    $("nav li:last-child a").click(function(e) {
+    $("nav li:nth-last-child(-n+2) a").click(function(e) {
         if ($(".heart_core_small").hasClass("show")) {
             $(".heart_core_small").removeClass("show");
         }
@@ -232,7 +238,7 @@ function init() {
         } else if (M_Status == 'finished') {
             counter = -2;
         }
-        console.log(M_Status, counter)
+        // console.log(M_Status, counter)
         counter++;
     }, 1000)
 
@@ -310,40 +316,32 @@ function init() {
             heartbeatArrSum = 0;
         }
     });
+
+
+    /* Btn for prediction =============================================================================== */
+    $('.js-classBtn').click(function(e) {
+        $('.js-classBtn').addClass('is-blocked');
+        classNum = $(this).data('class-num');
+        console.log(classNum);
+        console.log('fuuuuck');
+        setTimeout(function(){
+            if (classNum == 0){
+                $('.js-predictResult').text("Normal");
+                console.log('fuuuuck');
+            }
+            else if (classNum == 1){
+                $('.js-predictResult').text("Atrial fribillation");
+            }
+            else if (classNum == 2){
+                $('.js-predictResult').text("Noise");
+            }
+        },5000)
+        // post request for save data as json file
+        $.post('http://localhost:3000/predict/?getClass=' + classNum);
+        
+        e.preventDefault();
+    });
 }
-
-
-// function download(data, filename, type) {
-//     var file = new Blob([data], {
-//         type: type
-//     });
-//     if (window.navigator.msSaveOrOpenBlob) // IE10+
-//         window.navigator.msSaveOrOpenBlob(file, filename);
-//     else { // Others
-//         var a = document.createElement("a"),
-//             url = URL.createObjectURL(file);
-//         a.href = url;
-//         a.download = filename;
-//         document.body.appendChild(a);
-//         a.click();
-//         setTimeout(function() {
-//             document.body.removeChild(a);
-//             window.URL.revokeObjectURL(url);
-//         }, 0);
-//     }
-// }
-
-// function loadJsonData() {
-//     $.getJSON('../../../../data.json', gotData);
-//     console.log('got it');
-// }
-
-// function gotData(data) {
-//     console.log(data);
-// }
-// loadJsonData();
-
-
 
 
 function highlight(element) {
@@ -363,53 +361,3 @@ function navStyle(name) {
     })
     $('.nav a[href="#' + name + '"]').addClass("active")
 }
-// get wrapper changing
-// (function() {
-//     var ev = new $.Event('style'),
-//         orig = $.fn.css;
-//     $.fn.css = function() {
-//         $(this).trigger(ev);
-//         return orig.apply(this, arguments);
-//     }
-// })();
-
-
-
-// rellax for this case (old) =====================================================
-// var wrapperTopPast = 0;
-// var wrapperLeftPast = 0;
-// var wrapperTopMove = 0;
-// var wrapperLeftMove = 0;
-
-// $('.wrapper').bind('style', function(e) {
-//     wrapperTop = $(this).position().top;
-//     wrapperLeft = $(this).position().left;
-
-//     // Calculate scroll Movement
-//     wrapperTopMove = wrapperTop - wrapperTopPast;
-//     wrapperTopPast = wrapperTop;
-//     wrapperLeftMove = wrapperLeft - wrapperLeftPast;
-//     wrapperLeftPast = wrapperLeft;
-//     console.log('Movement:', wrapperTopMove, wrapperLeftMove);
-
-
-// });
-
-// var rellaxSpeed_x = 0;
-// var rellaxSpeed_y = 0;
-
-// setInterval(function() {
-//     // Update rellax
-//     rellax_x = $('.rellax').position().left + rellaxSpeed_x;
-//     rellax_y = $('.rellax').position().top + rellaxSpeed_y;
-//     $('.rellax').css({
-//         'left': rellax_x,
-//         'top': rellax_y
-//     });
-
-//     // Calculate speed
-//     speedRatio = $('.rellax').data('rellax-speed'); // 1 to 5
-//     rellaxSpeed_x = wrapperLeftMove * (speedRatio / 5);
-//     rellaxSpeed_y = wrapperTopMove * (speedRatio / 5);
-//     // console.log('rellax speed: ', rellaxSpeed_x, rellaxSpeed_y);
-// }, 100);

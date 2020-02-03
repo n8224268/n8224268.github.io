@@ -44,9 +44,10 @@
 			<li><a href="#section-6">Atrial Fibrillation</a></li>
 			<li><a href="#section-7">Dataset</a></li>
 			<li><a href="#section-8">Preprocess</a></li>
-			<li><a href="#section-9">ResNet</a></li>
-			<li><a href="#section-10">Accuracy</a></li>
+			<li><a href="#section-9">Proposed Net</a></li>
+			<li><a href="#section-10">Evaluation</a></li>
 			<li><a href="#section-11">Interaction</a></li>
+			<li><a href="#section-12">Prediction</a></li>
 		</ul>
 	</nav>
 	<!-- End navigation -->
@@ -70,7 +71,10 @@
 				<img class="heart" src="static/images/sketch/heart_lined.svg" alt="">
 				<div class="heart_core"></div>
 				<h1 class="project-title">Atrial Fibrillation Detection <br> In Spectrogram Based On <br>Convolution Neural Networks</h1>
-				<h2 class="project-subtitle">單導層心電圖搭配深度學習偵測心律不整</h2>
+				<h2 class="project-subtitle">
+					單導層心電圖搭配深度學習偵測心律不整
+					<br><span>Accepted by <span class="color--primary text--bold">ISPACS 2019</span> and <span class="color--primary text--bold">CVGIP 2019</span></span>
+				</h2>
 				<ul class="project-fellow">
 					<li>指導教授：郭景明</li>
 					<li>專題組員：楊喬鈞、王宗暉</li>
@@ -101,7 +105,7 @@
 					</div>
 					<div class="intro-card_main">
 						<h3 class="title">量測心跳的重要性</h3>
-						<p class="para">Mercury Development is proud to announce a new training program: React development!</p>
+						<p class="para">心跳量測的越仔細，越沒有雜訊，在放進模型中訓練時，可以有效避免模型朝錯誤的方向訓練，進而改善準確度。</p>
 					</div>
 				</a>
 			</div>
@@ -114,16 +118,18 @@
 				<img src="static/images/sketch/cell.svg" alt="">
 			</div>
 			<div class="intro-card js-tilt">
-				<div class="intro-card_bg">
-					<div class="bottom"></div>
-					<div class="frame"></div>
-					<div class="icon"></div>
-					<div class="corner"><span></span><span></span><span></span><span></span></div>
-				</div>
-				<div class="intro-card_main">
-					<h3 class="title">可以從心跳量測獲得甚麼？</h3>
-					<p class="para">Mercury Development is proud to announce a new training program: React development!</p>
-				</div>
+				<a data-fancybox data-type="iframe" data-src="IframePage/Page_02_Benefit.html" href="javascript:;">
+					<div class="intro-card_bg">
+						<div class="bottom"></div>
+						<div class="frame"></div>
+						<div class="icon"></div>
+						<div class="corner"><span></span><span></span><span></span><span></span></div>
+					</div>
+					<div class="intro-card_main">
+						<h3 class="title">可以從心跳量測獲得甚麼？</h3>
+						<p class="para">因為每個人的心跳都不一樣，藉由分析心跳，我們便可以簡單判斷患者的情況，進而對患者做當下最好的處理。</p>
+					</div>
+				</a>
 			</div>
 		</div>
 		<!-- End section 3 -->
@@ -138,111 +144,148 @@
 				</div>
 			</div>
 			<div class="intro-card js-tilt">
-				<div class="intro-card_bg">
-					<div class="bottom"></div>
-					<div class="frame"></div>
-					<div class="icon"></div>
-					<div class="corner"><span></span><span></span><span></span><span></span></div>
-				</div>
-				<div class="intro-card_main">
-					<h3 class="title">何謂ECG信號</h3>
-					<p class="para">Mercury Development is proud to announce a new training program: React development!</p>
-				</div>
+				<a data-fancybox data-type="iframe" data-src="IframePage/Page_03_ECG_signal.html" href="javascript:;">
+					<div class="intro-card_bg">
+						<div class="bottom"></div>
+						<div class="frame"></div>
+						<div class="icon"></div>
+						<div class="corner"><span></span><span></span><span></span><span></span></div>
+					</div>
+					<div class="intro-card_main">
+						<h3 class="title">何謂ECG信號</h3>
+						<p class="para"> 因為心跳時，皮膚表面有微小的電壓變化，我們藉由捕捉這個電壓變化，進而達到紀錄心跳的功能。</p>
+					</div>
+				</a>
 			</div>
 		</div>
 		<!-- End section 4 -->
 
+		<!-- Start section 5 -->
 		<div class="section section-5">
+			<div class="floating-obj obj_005">
+				<img src="static/images/sketch/anibody.svg" alt="">
+			</div>
 			<div class="intro-card js-tilt">
-				<div class="intro-card_bg">
-					<div class="bottom"></div>
-					<div class="frame"></div>
-					<div class="icon"></div>
-					<div class="corner"><span></span><span></span><span></span><span></span></div>
-				</div>
-				<div class="intro-card_main">
-					<h3 class="title">如何獲取心跳資訊</h3>
-					<p class="para">Mercury Development is proud to announce a new training program: React development!</p>
-				</div>
+				<a data-fancybox data-type="iframe" data-src="IframePage/Page_04_Extraction.html" href="javascript:;">
+					<div class="intro-card_bg">
+						<div class="bottom"></div>
+						<div class="frame"></div>
+						<div class="icon"></div>
+						<div class="corner"><span></span><span></span><span></span><span></span></div>
+					</div>
+					<div class="intro-card_main">
+						<h3 class="title">如何獲取心跳資訊</h3>
+						<p class="para">在患者身上放上 10 個電極，兩兩一組記錄電壓變化，我們取其 12 個電壓變化，也就是常見的 12 導層心電圖
+						。</p>
+					</div>
+				</a>
 			</div>
 		</div>
+		<!-- End section 5 -->
 
+		<!-- Start section 6 -->
 		<div class="section section-6">
 			<div class="intro-card js-tilt">
-				<div class="intro-card_bg">
-					<div class="bottom"></div>
-					<div class="frame"></div>
-					<div class="icon"></div>
-					<div class="corner"><span></span><span></span><span></span><span></span></div>
-				</div>
-				<div class="intro-card_main">
-					<h3 class="title">心房顫動</h3>
-					<p class="para">Mercury Development is proud to announce a new training program: React development!</p>
-				</div>
+				<a data-fancybox data-type="iframe" data-src="IframePage/Page_05_AF.html" href="javascript:;">
+					<div class="intro-card_bg">
+						<div class="bottom"></div>
+						<div class="frame"></div>
+						<div class="icon"></div>
+						<div class="corner"><span></span><span></span><span></span><span></span></div>
+					</div>
+					<div class="intro-card_main">
+						<h3 class="title">心房顫動</h3>
+						<p class="para">心律不整的一種，因為其發作的前兆不明顯及發作時間短，確診所時間長，會導致呼吸困難、心悸甚至中風。</p>
+					</div>
+				</a>
 			</div>
 		</div>
+		<!-- End section 6 -->
 
+		<!-- Start section 7 -->
 		<div class="section section-7">
 			<div class="intro-card js-tilt">
-				<div class="intro-card_bg">
-					<div class="bottom"></div>
-					<div class="frame"></div>
-					<div class="icon"></div>
-					<div class="corner"><span></span><span></span><span></span><span></span></div>
-				</div>
-				<div class="intro-card_main">
-					<h3 class="title">Dataset</h3>
-					<p class="para">Mercury Development is proud to announce a new training program: React development!</p>
-				</div>
+				<a data-fancybox data-type="iframe" data-src="IframePage/Page_06_Dataset.html" href="javascript:;">
+					<div class="intro-card_bg">
+						<div class="bottom"></div>
+						<div class="frame"></div>
+						<div class="icon"></div>
+						<div class="corner"><span></span><span></span><span></span><span></span></div>
+					</div>
+					<div class="intro-card_main">
+						<h3 class="title">Dataset</h3>
+						<p class="para">我們使用 AF challenge 2017 作為我們的資料庫，其中共有 8528 筆資料提供我們做訓練。</p>
+					</div>
+				</a>
 			</div>
 		</div>
+		<!-- End section 7 -->
 
+		<!-- Start section 8 -->
 		<div class="section section-8">
 			<div class="intro-card js-tilt">
-				<div class="intro-card_bg">
-					<div class="bottom"></div>
-					<div class="frame"></div>
-					<div class="icon"></div>
-					<div class="corner"><span></span><span></span><span></span><span></span></div>
-				</div>
-				<div class="intro-card_main">
-					<h3 class="title">前處理</h3>
-					<p class="para">Mercury Development is proud to announce a new training program: React development!</p>
-				</div>
+				<a data-fancybox data-type="iframe" data-src="IframePage/Page_07_Preprocess.html" href="javascript:;">
+					<div class="intro-card_bg">
+						<div class="bottom"></div>
+						<div class="frame"></div>
+						<div class="icon"></div>
+						<div class="corner"><span></span><span></span><span></span><span></span></div>
+					</div>
+					<div class="intro-card_main">
+						<h3 class="title">前處理</h3>
+						<p class="para"> 將每筆資料切成固定長度後，進行短時傅立葉轉換，將 1D 信號轉換成 2D 頻譜。</p>
+					</div>
+				</a>
 			</div>
 		</div>
+		<!-- End section 8 -->
 
+		<!-- Start section 9 -->
 		<div class="section section-9">
+			<div class="floating-obj obj_009">
+				<img src="static/images/sketch/cell.svg" alt="">
+			</div>
 			<div class="intro-card js-tilt">
-				<div class="intro-card_bg">
-					<div class="bottom"></div>
-					<div class="frame"></div>
-					<div class="icon"></div>
-					<div class="corner"><span></span><span></span><span></span><span></span></div>
-				</div>
-				<div class="intro-card_main">
-					<h3 class="title">Resnet</h3>
-					<p class="para">Mercury Development is proud to announce a new training program: React development!</p>
-				</div>
+				<a data-fancybox data-type="iframe" data-src="IframePage/Page_08_Proposed_Net.html" href="javascript:;">
+					<div class="intro-card_bg">
+						<div class="bottom"></div>
+						<div class="frame"></div>
+						<div class="icon"></div>
+						<div class="corner"><span></span><span></span><span></span><span></span></div>
+					</div>
+					<div class="intro-card_main">
+						<h3 class="title">Proposed Net</h3>
+						<p class="para"> 基於 CNN 的延伸深度學習模型，為了使其達到較好的效果，做了 shortcut 的特殊改良。</p>
+					</div>
+				</a>
 			</div>
 		</div>
+		<!-- End section 9 -->
 
+		<!-- Start section 10 -->
 		<div class="section section-10">
+			<div class="floating-obj obj_010">
+				<img src="static/images/sketch/vessel.svg" alt="">
+			</div>
 			<div class="intro-card js-tilt">
-				<div class="intro-card_bg">
-					<div class="bottom"></div>
-					<div class="frame"></div>
-					<div class="icon"></div>
-					<div class="corner"><span></span><span></span><span></span><span></span></div>
-				</div>
-				<div class="intro-card_main">
-					<h3 class="title">Accuracy</h3>
-					<p class="para">Mercury Development is proud to announce a new training program: React development!</p>
-				</div>
+				<a data-fancybox data-type="iframe" data-src="IframePage/Page_09_Evaluation.html" href="javascript:;">
+					<div class="intro-card_bg">
+						<div class="bottom"></div>
+						<div class="frame"></div>
+						<div class="icon"></div>
+						<div class="corner"><span></span><span></span><span></span><span></span></div>
+					</div>
+					<div class="intro-card_main">
+						<h3 class="title">Evaluation</h3>
+						<p class="para">我們藉由 Confusion metrix ，計算出最後的 F1 score = 78.06%</p>
+					</div>
+				</a>
 			</div>
 			<a class="btn js-gotoInteraction" href="#section-11">即時互動體驗</a>
 		</div>
+		<!-- End section 10 -->
 
+		<!-- Start section 11 -->
 		<div class="section section-11">
 			<div class="container--center">
 				<div class="container-fluid">
@@ -274,6 +317,69 @@
 				</div>
 			</div>
 		</div>
+		<!-- Start section 11 -->
+
+		<!-- Start section 12 -->
+		<div class="section section-12">
+			<div class="container--center">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="row">
+								<div class="col-md-6">
+									<h3 class="title">Original Signal</h3>
+								</div>
+								<div class="col-md-6">
+									<h3 class="title">After Preprocessing</h3>
+								</div>
+							</div>
+							<a href="" class="class-item js-classBtn" data-class-num="0">
+								<h3 class="class-name">Normal</h3>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="figure-frame" style="background-image: url('static/images/classification/normal_1.png');"></div>
+									</div>
+									<div class="col-md-6">
+										<div class="figure-frame" style="background-image: url('static/images/classification/normal_2.png');"></div>
+									</div>
+								</div>
+							</a>
+							<a href="" class="class-item js-classBtn" data-class-num="1">
+								<h3 class="class-name">Atrial Fibrillation</h3>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="figure-frame" style="background-image: url('static/images/classification/AF_1.png');"></div>
+									</div>
+									<div class="col-md-6">
+										<div class="figure-frame" style="background-image: url('static/images/classification/AF_2.png');"></div>
+									</div>
+								</div>
+							</a>
+							<a href="" class="class-item js-classBtn" data-class-num="2">
+								<h3 class="class-name">Other</h3>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="figure-frame" style="background-image: url('static/images/classification/other_1.png');"></div>
+									</div>
+									<div class="col-md-6">
+										<div class="figure-frame" style="background-image: url('static/images/classification/other_2.png');"></div>
+									</div>
+								</div>
+							</a>
+							<p class="para">請點選上方分類進行預測。</p>
+						</div>
+						<div class="col-md-4">
+							<div class="predict-info">
+								<h3 class="predict-info__text">預測模型之結果為：</h3>
+								<h4 class="predict-info__result js-predictResult"> </h4>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Start section 12 -->
+
 	</div>
 	<!-- End main -->
 

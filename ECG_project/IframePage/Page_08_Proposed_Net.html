@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../static/css/normalize.css">
+	<link rel="stylesheet" href="../static/css/bootstrap-grid.css">
+	<link rel="stylesheet" href="../static/css/iframePage_style.css">
+
+	<!-- Font -->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,400,500,700,900|Roboto:400,500,700,900&display=swap" rel="stylesheet">
+</head>
+<body bgColor="transparent">
+	<div class="wrapper">
+		<div class="container">
+			<h1 class="title">Proposed Net</h1>
+			<div class="row">
+				<div class="col-md-12">
+					<p class="para">當深度學習神經網路層數越來越深，最後會有梯度消失的問題，是因為一直對資料進行卷積，然而，深度殘差網絡（ Deep residual network, ResNet ）很好的解決了這個問題，它的 ShortCut 結構會把資料量進行保留，加入下一級的網路做計算，如下圖所示：</p>
+					<img class="image image-md resnet-image" src="../static/images/IframePage/resnet-e1548261477164.png" alt="">
+					<p class="para">在我們的情況中，我們選擇使用 Resnet-18 作為我們的網路架構基礎，並加以改良以提升訓練效能。在我們的實驗中發現，shortcut 的設計雖是為了保留上一層資料並加入下一級，但對於我們的圖像資料特性來說，就相對抓不到特徵重點，所以我們在 shortcut 的地方做了一些改良，加入了 max-pooling 層，讓我們的網路可以強化重點，像是低頻段的心跳，如下圖所示：</p>
+					<img class="image resnet-image image-md" src="../static/images/IframePage/resnet with maxpooling.png" alt="">
+					<img class="image resnet-image image-sm" src="../static/images/IframePage/Resnet-18 with max-pooling.png" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

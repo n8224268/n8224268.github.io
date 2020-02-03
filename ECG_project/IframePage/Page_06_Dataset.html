@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../static/css/normalize.css">
+	<link rel="stylesheet" href="../static/css/bootstrap-grid.css">
+	<link rel="stylesheet" href="../static/css/iframePage_style.css">
+
+	<!-- Font -->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,400,500,700,900|Roboto:400,500,700,900&display=swap" rel="stylesheet">
+</head>
+<body bgColor="transparent">
+	<div class="wrapper">
+		<div class="container">
+			<h1 class="title">資料庫 Dataset</h1>
+			<div class="row">
+				<div class="col-md-12">
+					<p class="para">2017 年 PhysioNet / CinC AF Challenge 旨在鼓勵開發一種演算法，以單筆的 ECG 的信號進行分類判斷單筆 ECG 是否是心房顫動，心臟協會提供的資料庫內含 8528 筆資料，資料庫中包含四種不同的信號，分別為正常、心房顫動、其他及雜訊，其訊號長度長短不一，最短的有 9 秒，最長的有 60 秒，平均每筆資料長度為 30 秒，取樣頻率 <span class="highlight">300Hz</span>。</p>
+					<table class="table">
+						<tr>
+							<th>Type</th>
+							<th># recording</th>
+							<th>Time length (s)</th>
+						</tr>
+					</table>
+					<table class="table">
+						<tr>
+							<td></td>
+							<td></td>
+							<td>Mean</td>
+							<td>SD</td>
+							<td>Max</td>
+							<td>Median</td>
+							<td>Min</td>
+						</tr>
+						<tr>
+							<td><b>Normal</b></td>
+							<td>5154</td>
+							<td>31.9</td>
+							<td>10.0</td>
+							<td>61.0</td>
+							<td>30</td>
+							<td>9.0</td>
+						</tr>
+						<tr>
+							<td><b>AF</b></td>
+							<td>771</td>
+							<td>31.6</td>
+							<td>12.5</td>
+							<td>60</td>
+							<td>30</td>
+							<td>10.0</td>
+						</tr>
+						<tr>
+							<td><b>Other rhythm</b></td>
+							<td>2557</td>
+							<td>34.1</td>
+							<td>11.8</td>
+							<td>60.9</td>
+							<td>30</td>
+							<td>9.1</td>
+						</tr>
+						<tr>
+							<td><b>Noisy</b></td>
+							<td>46</td>
+							<td>27.1</td>
+							<td>9.0</td>
+							<td>60</td>
+							<td>30</td>
+							<td>10.2</td>
+						</tr>
+						<tr>
+							<td><b>Total</b></td>
+							<td><span class="highlight">8528</span></td>
+							<td>32.5</td>
+							<td>10.9</td>
+							<td>61.0</td>
+							<td>30</td>
+							<td>9.0</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

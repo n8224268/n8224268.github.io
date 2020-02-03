@@ -69,6 +69,52 @@
 	left: 100%;
 	animation: pulseMove2 2s infinite linear,pulseFlush 2s -1s infinite;
 }
+.obj_005{
+	bottom: -40%;
+	right: -20%;
+	animation: 
+		floating 5s infinite,
+		rotate 10s infinite linear;
+}
+.obj_005 img{
+	width: 1000px;
+	display: block;
+	opacity: 0.4;
+}
+.obj_006{
+	bottom: -40%;
+	right: -20%;
+	animation: 
+		floating 5s infinite,
+		rotate 20s infinite linear;
+}
+.obj_006 img{
+	width: 1000px;
+	display: block;
+	opacity: 0.4;
+}
+.obj_009{
+	top: 25%;
+	left: 0%;
+	animation: 
+		breathing 5s infinite,
+		rotate 10s infinite linear;
+}
+.obj_009 img{
+	width: 500px;
+	display: block;
+	opacity: 0.4;
+}
+.obj_010{
+	bottom: -40%;
+	right: -20%;
+	animation: breathing 5s infinite;
+}
+.obj_010 img{
+	width: 1000px;
+	display: block;
+	opacity: 0.4;
+}
 
 /*------------------------------------*\
 	Animation

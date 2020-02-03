@@ -85,7 +85,6 @@ h1,h2,h3,h4,h5,h6{
 	width: 1500px;
 	height: 900px;
 	transform: translate(-50%,-50%);
-	/*border: 1px solid #fff;*/
 }
 .section-1{
 	top: 0;
@@ -132,10 +131,22 @@ h1,h2,h3,h4,h5,h6{
 	top: 5600px;
 	left: 126px;
 }
+.section-12{
+	top: 6800px;
+	left: 126px;
+}
 
 /*------------------------------------*\
     Component
 \*------------------------------------*/
+
+/* common */
+.color--primary{
+	color: #ff6464;
+}
+.text--bold{
+	font-weight: 800;
+}
 
 /* bg mask */
 .mask{
@@ -437,11 +448,12 @@ h1,h2,h3,h4,h5,h6{
     color: #ff6464;
 }
 .intro-card_main .para{
-	font-family: Roboto;
+	font-family: 'Noto Sans TC','微軟正黑體',Roboto;
     font-size: 16px;
     font-weight: 400;
     font-style: normal;
     font-stretch: normal;
+    text-align: justify;
     line-height: 1.5;
     letter-spacing: normal;
     color: rgba(255,255,255,0.7);
@@ -506,6 +518,10 @@ h1,h2,h3,h4,h5,h6{
 	/*text-align: center;*/
 	margin-top: 0;
 	margin-bottom: 48px;
+	line-height: 1.5;
+}
+.section-1 .project-subtitle span{
+	font-size: 20px;
 }
 .section-1 .project-fellow{
 	font-size: 24px;
@@ -735,6 +751,75 @@ h1,h2,h3,h4,h5,h6{
 }
 .section-11 .spectrogram.is-loading .loading{
 	opacity: 1;
+}
+
+
+/* section 12 */
+.section-12 .figure-frame{
+	width: 100%;
+	padding-top: 150px;
+	background-color: #ccc;
+	background-position: 56% 52%;
+	background-size: 130%;
+}
+.section-12 .title{
+	font-size: 24px;
+	margin-bottom: 40px;	
+}
+.section-12 .class-item{
+	margin-bottom: 16px;
+	display: block;
+	padding: 18px;
+	transition: all 0.2s;
+}
+.section-12 .class-item:hover{
+	transform: scale(1.05);
+}
+.section-12 .class-item:before{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	border-top: 2px solid #ff6464;
+	border-left: 2px solid #ff6464;
+	width: 24px;
+	height: 24px;
+}
+.section-12 .class-item:after{
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	border-right: 2px solid #ff6464;
+	border-bottom: 2px solid #ff6464;
+	width: 24px;
+	height: 24px;
+}
+.section-12 .class-item.js-classBtn.is-blocked{
+	pointer-events: none;
+}
+.section-12 .class-name{
+	margin-bottom: 8px;
+	color: #fff;
+	text-decoration: none;
+}
+.section-12 .para{
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+.section-12 .predict-info{
+	margin-top: 360px;
+	padding-left: 120px;
+}
+.section-12 .predict-info__text{
+	font-size: 24px;
+	font-weight: 400;
+	margin-bottom: 32px;
+}
+.section-12 .predict-info__result{
+	font-size: 40px;
+	font-weight: 800;	
+	color: #ff6464;
 }
 
 

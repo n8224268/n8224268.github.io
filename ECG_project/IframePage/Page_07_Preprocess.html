@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="../static/css/normalize.css">
+	<link rel="stylesheet" href="../static/css/bootstrap-grid.css">
+	<link rel="stylesheet" href="../static/css/iframePage_style.css">
+
+	<!-- Font -->
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,400,500,700,900|Roboto:400,500,700,900&display=swap" rel="stylesheet">
+</head>
+<body bgColor="transparent">
+	<div class="wrapper">
+		<div class="container">
+			<h1 class="title">前處理</h1>
+			<div class="row">
+				<div class="col-md-12">
+					<p class="para">
+					資料長度對於深度學習模型影響很大，由於資料庫提供的每段心跳長度不同，所以我們經過測試後，最終用 8528 筆資料中最短的 9 秒作為基準長度，將每一筆資料都切成 9 秒長，避免因為資料長度不同的問題導致模型無法順利地建立，之後再將切割好的心跳訊號進行短時傅立葉轉換，將原來一維的 ECG 心跳信號，轉換成二維度的頻譜圖 spectrum ，並以 2D 的影像資料形式輸入，對模型進行訓練。</p>
+					<img class="image" src="../static/images/classification/AF_1.png" alt="">
+					<img class="image" src="../static/images/classification/AF_2.png" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
