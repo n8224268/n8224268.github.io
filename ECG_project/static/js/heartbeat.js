@@ -1,4 +1,4 @@
-var limit = 200,
+var limit = 150,
     duration = 5,
     now = new Date(Date.now() - duration)
 
